@@ -21,17 +21,39 @@ function converter(n) {
       n -= 50;
     }
     while (n >= 10) {
+      if (n >= 40) {
+        roman += "XL";
+        n -= 40
+      } else {
       roman += "X";
       n -= 10;
+      }
     }
-    while (n >= 5) {
-      roman += "V";
-      n -= 5;
+    if (n === 9) {
+      roman += "IX";
+      n -= 9;
+    } else {
+      while (n >= 5) {
+        roman += "V";
+        n -= 5;
+      }
     }
-    while (n >= 1) {
-      roman += "I";
-      n -= 1;
+    if (n === 4) {
+      roman += "IV";
+    } else {
+      while (n >= 1) {
+        roman += "I";
+        n -= 1;
+      }
     }
+    // while (n[-1] === 4) {
+    //   roman += "IV";
+    //   n -= 4;
+    // }
+    // while (n >= 1) {
+    //   roman += "I";
+    //   n -= 1;
+    // }
   }
   return roman
 }
