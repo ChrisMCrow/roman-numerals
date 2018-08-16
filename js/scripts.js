@@ -4,7 +4,19 @@ function converter(n) {
   if (n < 1 || n > 3999) {
     return alert("Please enter a number between 1 & 3,999");
   } else {
-    if (n > 5) {
+    if (n > 10) {
+      var remainderX = n % 10
+      for (i = n; i > 9; i -= 10) {
+        roman += "X";
+      }
+      var remainderV = remainderX % 5
+      for (i = remainderX; i > 4; i -= 5) {
+        roman += "V";
+      }
+      for (i = remainderV; i > 0; i--) {
+        roman += "I";
+      }
+    } else if (n > 5) {
       var remainderV = n % 5
       for (i = n; i > 4; i -= 5) {
         roman += "V"
